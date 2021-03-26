@@ -1,0 +1,7 @@
+$env:apiKey="AIzaSyDHhspA0DyI5pcLwWhyhQx4EMLPA_C4qmw"
+$env:authDomain="language-learning-71974.firebaseapp.com"
+$env:projectId="language-learning-71974"
+$env:storageBucket="language-learning-71974.appspot.com"
+$env:messagingSenderId="179829066741"
+$env:appId="1:179829066741:web:aa99db36e1f15410b8aebc"
+$env:measurementId="G-DSRYEJHB1Q"

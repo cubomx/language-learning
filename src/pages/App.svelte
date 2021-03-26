@@ -4,7 +4,10 @@
     import Main from '../components/Main.svelte';
 
     import Badge from "svelte-favicon-badge";
-import Card from '../components/Card.svelte';
+
+
+    
+
     let count = 0;
     let background = "#FF0000";
     let color = "#FFFFFF";
@@ -28,11 +31,24 @@ import Card from '../components/Card.svelte';
     }
 
     :global(button, input){
+        background-color: white;
+        border-width: 1px;
+        border-radius: 4px;
         font-family: Lato;
         font-size: 1em;
     }
+
+    :global(input){
+        padding: 5px;
+    }
+
+    :global(button){
+        border-radius: 5px;
+        padding: 3px 15px;
+    }
+
     :global(button:hover){
-        color: red;
+        background-color: rgb(192,192,192, 0.6);
     }
     
 

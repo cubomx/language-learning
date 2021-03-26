@@ -3,6 +3,7 @@ const path = require('path');
  
 // Change HTML from places
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
  
 module.exports = {
     // point of entry of our app

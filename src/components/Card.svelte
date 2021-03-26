@@ -8,8 +8,13 @@
       border-radius: 4px;
       background-color: white;
       width: 50%;
-      min-width: 300px;
       padding: 10px;
+    }
+
+    @media only screen and (max-width: 1400px){
+        .Card{
+            width: 90%;
+        }
     }
     .Card-word{
         padding: 0 0 5px 5px;
