@@ -81,8 +81,8 @@
   <div class="SignUp-content">
     <input class="SignUp-input" type="text" placeholder="email" bind:value={email}>
     <input class="SignUp-input" type="password" placeholder="password" bind:value={password}>
-      <span class="SignUp-submit">
-          <i class='far fa-check-circle'  on:click={handleAuth}/>
+      <span class="SignUp-submit" on:click={handleAuth}>
+          <i class='far fa-check-circle'  />
           Create account
       </span>
   </div>

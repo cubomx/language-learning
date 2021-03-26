@@ -1,0 +1,35 @@
+
+    body{
+        background-color: #fafafa;
+        color: rgba(38, 38, 38, 0.7);
+        font-family: Lato;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2, h3{
+        margin: 0;
+        padding: 0;
+        font-family: "Pacifico", sans-serif;
+    }
+
+    button, input{
+        background-color: white;
+        border-width: 1px;
+        border-radius: 4px;
+        font-family: Lato;
+        font-size: 1em;
+    }
+
+    input{
+        padding: 5px;
+    }
+
+    button{
+        border-radius: 5px;
+        padding: 3px 15px;
+    }
+
+button:hover{
+        background-color: rgb(192,192,192, 0.6);
+    }
