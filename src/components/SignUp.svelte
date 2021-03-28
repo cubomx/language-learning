@@ -37,6 +37,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
   }
   .SignUp-head h2 {
     font-size: 16px;
@@ -85,5 +86,6 @@
           <i class='far fa-check-circle'  />
           Create account
       </span>
+    <p class="SignUp-signIn">Already have an account?</p>
   </div>
 </div>
