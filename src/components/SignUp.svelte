@@ -37,6 +37,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
   }
   .SignUp-head h2 {
     font-size: 16px;
@@ -81,9 +82,10 @@
   <div class="SignUp-content">
     <input class="SignUp-input" type="text" placeholder="email" bind:value={email}>
     <input class="SignUp-input" type="password" placeholder="password" bind:value={password}>
-      <span class="SignUp-submit">
-          <i class='far fa-check-circle'  on:click={handleAuth}/>
+      <span class="SignUp-submit" on:click={handleAuth}>
+          <i class='far fa-check-circle'  />
           Create account
       </span>
+    <p class="SignUp-signIn">Already have an account?</p>
   </div>
 </div>

@@ -49,16 +49,20 @@
     .Search-select{
         padding: 5px;
         border-radius: 3px;
-        margin-bottom: 20px ;
+        margin-bottom: 10px ;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
     .Search-container{
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .btn_submit{
-        margin-left: 1rem;
+        margin-left: 10px;
+    }
+
+    .Search-add{
+        margin-bottom: 10px;
     }
     
 </style>
@@ -78,6 +82,7 @@
 
     </div>
     {#if $isWord}
+    <button class="Search-add" >Add</button>
     <Card {word} />
     {/if}
 </div>

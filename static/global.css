@@ -1,0 +1,44 @@
+
+    body{
+        background-color: #fafafa;
+        color: rgba(38, 38, 38, 0.7);
+        font-family: Lato;
+        margin: 0;
+        padding: 0;
+    }
+
+   
+
+    h1, h2, h3{
+        margin: 0;
+        padding: 0;
+        font-family: "Pacifico", sans-serif;
+    }
+
+    input{
+        background-color: white;
+        border-width: 1px;
+        border-radius: 4px;
+        font-family: Lato;
+        font-size: 1em;
+    }
+
+    input{
+        padding: 5px;
+    }
+
+    button{
+        background-color: white;
+        font-family: Lato;
+        cursor: pointer;
+        border: 1px solid rgba(219, 219, 219, 1);
+        border-radius: 5px;
+        padding: 0.5rem 3rem;
+        color: black;
+        font-size: 14px;
+        margin: 2em 0 0 0;
+    }
+
+button:hover{
+        background-color: rgb(192,192,192, 0.6);
+    }
