@@ -100,8 +100,6 @@
     <div class="Header-container">
         <div class="Header-content"> 
             <h1>Learning</h1>
-              
-            
                 <div class="Header-menu">
                   <i class="fas fa-bars fa-2x " on:click={handleMenu}></i>
                   {#if isMenu}
@@ -117,7 +115,6 @@
                     </a>
                     </div>
                   {/if}
-                  
                 </div>
         </div>
     </div>
