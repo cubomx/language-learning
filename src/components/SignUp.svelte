@@ -1,7 +1,9 @@
 <script>
-
   import { Auth } from '../config/firebase.js';
-  let password ='', email='';
+  import { clickOutside } from '../helpers/clickOutside.js'
+  
+
+  let password ='', email='', nickname='';
   const handleAuth = () => {
     console.log(password);
     console.log("heho")
@@ -74,12 +76,13 @@
 </style>
 
 
-<div class="SignUp">
+<div class="SignUp" use:clickOutside  on:click_outside>
   <div class="SignUp-head">
       <h2>Sign Up</h2>
       <i class='fas fa-times-circle' on:click/>
   </div>
   <div class="SignUp-content">
+    <input class="SignUp-input" type="text" placeholder="nickname" bind:value={nickname}>
     <input class="SignUp-input" type="text" placeholder="email" bind:value={email}>
     <input class="SignUp-input" type="password" placeholder="password" bind:value={password}>
       <span class="SignUp-submit" on:click={handleAuth}>

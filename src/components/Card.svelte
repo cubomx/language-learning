@@ -1,5 +1,6 @@
 <script>
     import {data} from '../stores/store.js';
+    let bookmark = false;
 </script>
 
 <style>
@@ -17,6 +18,8 @@
         }
     }
     .Card-word{
+        display: flex;
+        justify-content: space-between;
         padding: 0 0 5px 5px;
         font-weight: bold;
         font-size: 2em;
@@ -37,12 +40,49 @@
         font-style: italic;
         text-align: justify;
     }
+    .active-bookmark {
+      color: rgb(0,191,255);
+      animation: bounce linear 0.8s;
+      animation-iteration-count: 1;
+      transform-origin: 20% 20%;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translate(0px, 0px);
+      }
+      15% {
+        transform: translate(0px, -25px);
+      }
+      30% {
+        transform: translate(0px, 0px);
+      }
+      45% {
+        transform: translate(0px, -15px);
+      }
+      60% {
+        transform: translate(0px, 0px);
+      }
+      75% {
+        transform: translate(0px, -5px);
+      }
+      100% {
+        transform: translate(0px, 0px);
+      }
+    }
 </style>
 
 {#if $data != undefined}
 <div class="Card">
+    
     <div class="Card-container">
-        <div class="Card-word">{$data.word}</div>
+        <div class="Card-word">{$data.word}
+            <i class:active-bookmark={bookmark} 
+            on:click={ () => (bookmark =  !bookmark)}
+            class="fas fa-bookmark">
+
+            </i>
+        </div>
         {#each $data.meanings as meaning}
         <div class="Card-meaning">
             {meaning.partOfSpeech}

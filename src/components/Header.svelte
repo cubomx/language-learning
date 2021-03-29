@@ -3,19 +3,28 @@
   import Modal from './Modal.svelte';
   import SignUp from './SignUp.svelte';
 
+  import { clickOutside } from '../helpers/clickOutside.js'
+
   export let segment; // know the route
   let isModal = false;
   let isMenu = false;
 
-  const handleModal = () => {
-    isModal = !isModal;
-    console.log(isModal);
-    console.log("sali");
-  };
-
-  const handleMenu = ()=> {
+  const handleMenu = () => {
     isMenu = !isMenu;
   }
+
+  const closeMenu = () => {
+    isMenu = false;
+  }
+
+  const handleModal = () => {
+    isModal = !isModal;
+    if (isModal){
+      handleMenu();
+    }
+  };
+
+  
 </script>
 
 <style>
@@ -94,13 +103,16 @@
 <div class="Header">
   {#if isModal}
     <Modal>
-      <SignUp on:click={handleModal} />
+      <SignUp on:click_outside={handleModal} on:click={handleModal} />
     </Modal>
   {/if}
     <div class="Header-container">
         <div class="Header-content"> 
+          <a aria-current={segment} href="/">
             <h1>Learning</h1>
-                <div class="Header-menu">
+          </a>
+            
+                <div class="Header-menu" use:clickOutside on:click_outside={closeMenu}>
                   <i class="fas fa-bars fa-2x " on:click={handleMenu}></i>
                   {#if isMenu}
                   <div class="Header-menu-content">
@@ -108,7 +120,7 @@
                     <i class="fas fa-user fa-2x" on:click={handleModal}>
                       <span>Sign Up</span>
                     </i>
-                    <a aria-current={segment} href='words'>
+                    <a aria-current={segment} href='words' on:click={handleMenu}>
                       <i class="fab fa-leanpub fa-2x Header-menu-words">
                         <span>Words</span> 
                       </i> 
