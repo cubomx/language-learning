@@ -61,9 +61,6 @@
         margin-left: 10px;
     }
 
-    .Search-add{
-        margin-bottom: 10px;
-    }
     
 </style>
 
@@ -82,7 +79,6 @@
 
     </div>
     {#if $isWord}
-    <button class="Search-add" >Add</button>
     <Card {word} />
     {/if}
 </div>
