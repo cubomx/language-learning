@@ -2,17 +2,15 @@
   import Error from './Error.svelte';
   import { clickOutside } from '../helpers/clickOutside.js'
   import { Auth, Firestore } from '../config/firebase.js';
+
+  import PopUp from './PopUp.svelte';
+
   let email = "", password = "", nickname = "";
   let firebaseError = false, msg="";
+  let toShow = false;
   export let isCreation;
   export let message;
   export let title; 
-
-  
-
-  const checkId = () => {
-    alert(Auth.currentUser);
-  }
 
   const handleSignUp = () => {
     console.log(nickname);
@@ -22,7 +20,11 @@
         console.log("Hello")
       })
       .catch( error => {
-        console.log(error)
+         var errorCode = error.code;
+        var errorMessage = error.message;
+        msg = errorMessage + " " + errorCode;
+        firebaseError = true;
+        console.log(errorMessage, errorCode);
       })
   }
 
@@ -31,7 +33,7 @@ const handleAuth = () => {
     .then((user) => {
       firebaseError = false;
        console.log(user.user.uid);
-       checkId();
+       toShow = true;
     })
     .catch((error) => {
         var errorCode = error.code;
@@ -105,6 +107,7 @@ const handleAuth = () => {
 
 
 <div class="Form" use:clickOutside  on:click_outside>
+  <PopUp {toShow} msg={ isCreation ? "Account created" : "Logged in"}/>
   <div class="Form-progress"></div>
   <div class="Form-head">
       <h2>{title}</h2>
