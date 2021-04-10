@@ -1,6 +1,51 @@
 <script>
     import {data} from '../stores/store.js';
+    import { getUser } from '../helpers/currentUser.js';
+    import Modal from './Modal.svelte';
+    import MessageBox from './MessageBox.svelte';
+    import PopUp from './PopUp.svelte';
+    import Firebase from 'firebase';
+
+    import { languageCode } from '../stores/store.js';
+    import { Firestore } from '../config/firebase.js';
+
     let bookmark = false;
+    let toShow = false;
+    let isPopUp = false;
+    let msg = "";
+
+    const handleShow = () => {
+      bookmark =  !bookmark; 
+      setTimeout( () => {
+        toShow = !toShow;
+      }, 500)
+    }
+
+    const addWord = () => {
+      const uId = getUser();
+      if (uId != null){
+        const ref = Firestore.collection(uId).doc($languageCode);
+            console.log("add word");
+            ref.get()
+            .then( (doc) => {
+              if (doc.exists){
+                isPopUp = true;
+                msg = "Word added";
+                setTimeout( () => isPopUp = false, 5000);
+                doc.ref.update({
+                  words: Firebase.firestore.FieldValue.arrayUnion($data.word)
+                });
+              }
+              else{
+                alert("Language not initialzied");
+              }
+            })
+          }
+        else{
+          handleShow();
+        }
+      }
+      
 </script>
 
 <style>
@@ -74,11 +119,17 @@
 
 {#if $data != undefined}
 <div class="Card">
-    
+      <PopUp toShow={isPopUp} {msg}/>
+    {#if toShow}
+    <Modal>
+      <MessageBox msg="Not signed" on:click={handleShow}
+      description="If you want to add a word you need to first Login" />
+    </Modal>
+    {/if}
     <div class="Card-container">
         <div class="Card-word">{$data.word}
             <i class:active-bookmark={bookmark} 
-            on:click={ () => (bookmark =  !bookmark)}
+            on:click={ () => addWord()}
             class="fas fa-bookmark">
 
             </i>

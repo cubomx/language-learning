@@ -18,6 +18,7 @@
     Auth.createUserWithEmailAndPassword(email, password)
       .then( () => { 
         console.log("Hello")
+        
       })
       .catch( error => {
          var errorCode = error.code;
@@ -33,7 +34,11 @@ const handleAuth = () => {
     .then((user) => {
       firebaseError = false;
        console.log(user.user.uid);
+       Firestore.collection(user.user.uid).doc("en_US").set({});
        toShow = true;
+       setTimeout(() => {
+          toShow = !toShow;
+       }, 5000);
     })
     .catch((error) => {
         var errorCode = error.code;
@@ -107,8 +112,7 @@ const handleAuth = () => {
 
 
 <div class="Form" use:clickOutside  on:click_outside>
-  <PopUp {toShow} msg={ isCreation ? "Account created" : "Logged in"}/>
-  <div class="Form-progress"></div>
+  <PopUp  {toShow} msg={ isCreation ? "Account created" : "Logged in"}/>
   <div class="Form-head">
       <h2>{title}</h2>
       <i class='fas fa-times-circle' on:click/>

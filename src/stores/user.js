@@ -6,5 +6,3 @@ export const nickname = writable("");
 export const email = writable("");
 
 export const password = writable("");
-
-
